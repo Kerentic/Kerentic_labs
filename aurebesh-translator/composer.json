@@ -1,0 +1,11 @@
+{
+    "name": "kerentic/aurebesh-translator",
+    "description": "Aurebesh transliteration experiment by Kerentic Labs",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Kerentic\\Aurebesh\\": "src/"
+        }
+    },
+    "require": {}
+}
