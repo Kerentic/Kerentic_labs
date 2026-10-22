@@ -14,8 +14,8 @@
     font-display: swap;
 }
 
-.aurebesh-text {
-    font-family: "FTAurebesh", sans-serif;
+* {
+    box-sizing: border-box;
 }
 
 body {
@@ -25,30 +25,97 @@ body {
     color: #f5f7fa;
 }
 
+/* =========================
+   KERENTIC HEADER
+   ========================= */
+
+.site-header {
+    background: #0b0d12;
+    border-bottom: 1px solid #222936;
+}
+
+.site-header__inner {
+    width: min(1100px, 90%);
+    height: 64px;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.brand-link,
+.footer-brand {
+    display: inline-flex;
+    align-items: center;
+}
+
+.brand-logo {
+    width: 64px;
+    height: auto;
+    display: block;
+}
+
+.project-context {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    color: #8f98a8;
+    font-size: 0.85rem;
+}
+
+.project-context__link {
+    color: #d6dbe4;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.project-context__link:hover {
+    color: #ffffff;
+}
+
+.separator {
+    color: #505968;
+}
+
+/* =========================
+   MAIN CONTENT
+   ========================= */
+
 .container {
     width: min(720px, 90%);
-    margin: 80px auto;
+    margin: 56px auto;
 }
 
 header {
-    margin-bottom: 40px;
+    margin-bottom: 36px;
 }
 
 .eyebrow {
+    color: #9ba4b5;
     font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 0.15em;
-    color: #9ba4b5;
 }
 
 h1 {
-    font-size: 3rem;
     margin: 10px 0;
+    font-size: 3rem;
+}
+
+h2 {
+    margin: 0;
 }
 
 p {
     color: #aeb6c5;
 }
+
+/* =========================
+   TRANSLATOR FORM
+   ========================= */
 
 form {
     display: grid;
@@ -62,11 +129,13 @@ label {
 textarea,
 select {
     width: 100%;
+    padding: 14px;
+
     background: #151922;
-    color: white;
+    color: #ffffff;
+
     border: 1px solid #2c3340;
     border-radius: 8px;
-    padding: 14px;
 }
 
 textarea {
@@ -75,28 +144,193 @@ textarea {
 }
 
 button {
+    padding: 14px 18px;
+
     border: none;
     border-radius: 8px;
-    padding: 14px 18px;
+
     cursor: pointer;
     font-weight: bold;
+
+    transition:
+        opacity 0.2s ease,
+        background-color 0.2s ease,
+        color 0.2s ease;
 }
 
-form button {
-    background: white;
-    color: black;
+button:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
 }
+
+.direction-row {
+    display: flex;
+    align-items: end;
+    gap: 12px;
+}
+
+.direction-field {
+    flex: 1;
+}
+
+.swap-button {
+    width: 50px;
+    height: 50px;
+    padding: 0;
+
+    background: #ffffff;
+    color: #000000;
+
+    font-size: 1.4rem;
+}
+
+/* =========================
+   RESULT
+   ========================= */
 
 .result {
-    margin-top: 40px;
+    margin-top: 36px;
 }
 
+.result-header {
+    margin-bottom: 16px;
+}
+
+.result-output,
 #result {
+    min-height: 120px;
+    padding: 24px;
+
     background: #151922;
+
     border: 1px solid #2c3340;
     border-radius: 8px;
-    padding: 24px;
-    margin-bottom: 16px;
-    min-height: 80px;
+
     font-size: 1.4rem;
+
+    overflow-wrap: anywhere;
+}
+
+.aurebesh-text {
+    font-family: "FTAurebesh", sans-serif;
+    font-size: 2rem;
+    letter-spacing: 0.08em;
+    line-height: 1.6;
+}
+
+.result-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    margin-top: 16px;
+}
+
+.result-actions button {
+    background: #ffffff;
+    color: #000000;
+}
+
+.result-actions button:not(:disabled):hover,
+.swap-button:hover {
+    background: #e4e7ec;
+}
+
+/* =========================
+   KERENTIC FOOTER
+   ========================= */
+
+.site-footer {
+    margin-top: 56px;
+    padding: 36px 0 28px;
+
+    border-top: 1px solid #222936;
+}
+
+.site-footer__inner {
+    width: min(1100px, 90%);
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+.footer-logo {
+    width: 64px;
+    height: auto;
+}
+
+.footer-description {
+    margin: 16px 0 0;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    margin: 18px 0;
+}
+
+.footer-links a {
+    color: #aeb6c5;
+    text-decoration: none;
+    font-size: 0.9rem;
+
+    transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+    color: #ffffff;
+}
+
+.footer-meta {
+    margin: 0;
+
+    color: #6f7888;
+    font-size: 0.8rem;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 640px) {
+    .site-header__inner {
+        height: auto;
+        min-height: 64px;
+        padding: 12px 0;
+    }
+
+    .brand-logo {
+        width: 52px;
+    }
+
+    .project-context {
+        font-size: 0.75rem;
+    }
+
+    .container {
+        margin: 40px auto;
+    }
+
+    h1 {
+        font-size: 2.3rem;
+    }
+
+    .direction-row {
+        align-items: stretch;
+    }
+
+    .swap-button {
+        align-self: end;
+    }
+
+    .result-actions {
+        flex-direction: column;
+    }
+
+    .result-actions button {
+        width: 100%;
+    }
 }

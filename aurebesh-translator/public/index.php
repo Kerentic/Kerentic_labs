@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-
+<?php require __DIR__ . '/../shared/header.php'; ?>
 <main class="container">
     <header>
         <span class="eyebrow">Kerentic Labs · Experiment 001</span>
@@ -36,49 +36,75 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <p>Transliterate text between Latin characters and Aurebesh.</p>
     </header>
 
-    <form method="POST">
-        <label for="text">Input</label>
+    <form id="translatorForm">
+    <label for="text">Input</label>
 
-        <textarea
-            id="text"
-            name="text"
-            placeholder="May the Force be with you..."
-        ><?= htmlspecialchars($input, ENT_QUOTES, 'UTF-8') ?></textarea>
+    <textarea
+        id="text"
+        name="text"
+        placeholder="May the Force be with you..."
+    ><?= htmlspecialchars($input, ENT_QUOTES, 'UTF-8') ?></textarea>
 
-        <label for="direction">Direction</label>
+    <div class="direction-row">
+        <div class="direction-field">
+            <label for="direction">Direction</label>
 
-        <select id="direction" name="direction">
-            <option value="aurebesh" <?= $direction === 'aurebesh' ? 'selected' : '' ?>>
-                Latin → Aurebesh
-            </option>
+            <select id="direction" name="direction">
+                <option value="aurebesh">
+                    Latin → Aurebesh
+                </option>
 
-            <option value="latin" <?= $direction === 'latin' ? 'selected' : '' ?>>
-                Aurebesh → Latin
-            </option>
-        </select>
+                <option value="latin">
+                    Aurebesh → Latin
+                </option>
+            </select>
+        </div>
 
-        <button type="submit">Convert</button>
-    </form>
+        <button
+            type="button"
+            id="swapDirection"
+            class="swap-button"
+            aria-label="Swap translation direction"
+        >
+            ⇄
+        </button>
+    </div>
+</form>
 
-    <?php if ($output !== ''): ?>
+
+
         <section class="result">
-            <h2>Result</h2>
+            <div class="result-header">
+                <h2>Result</h2>
+            </div>
 
             <div
                 id="result"
-                class="<?= $direction === 'aurebesh' ? 'aurebesh-text' : '' ?>"
-            >
-                <?= htmlspecialchars($output, ENT_QUOTES, 'UTF-8') ?>
-            </div>
+                class="result-output"
+                aria-live="polite"
+            ></div>
 
-            <button type="button" id="copyButton">
-                Copy
-            </button>
+            <div class="result-actions">
+                <button
+                    type="button"
+                    id="copyImageButton"
+                    disabled
+                >
+                    Copy Image
+                </button>
+
+                <button
+                    type="button"
+                    id="downloadImageButton"
+                    disabled
+                >
+                    Download PNG
+                </button>
+            </div>
         </section>
-    <?php endif; ?>
 </main>
 
 <script src="js/app.js"></script>
-
+<?php require __DIR__ . '/../shared/footer.php'; ?>
 </body>
 </html>
