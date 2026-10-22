@@ -64,7 +64,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <section class="result">
             <h2>Result</h2>
 
-            <div id="result">
+            <div
+                id="result"
+                class="<?= $direction === 'aurebesh' ? 'aurebesh-text' : '' ?>"
+            >
                 <?= htmlspecialchars($output, ENT_QUOTES, 'UTF-8') ?>
             </div>
 
