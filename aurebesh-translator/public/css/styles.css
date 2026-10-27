@@ -333,4 +333,20 @@ button:disabled {
     .result-actions button {
         width: 100%;
     }
+
+    .character-counter {
+        margin-top: -8px;
+
+        text-align: right;
+        color: #6f7888;
+        font-size: 0.8rem;
+    }
+
+    .character-counter.is-near-limit {
+    color: #d6a84b;
+    }
+
+    .character-counter.is-at-limit {
+        color: #d66a6a;
+    }
 }
