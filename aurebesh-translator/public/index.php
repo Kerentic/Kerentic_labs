@@ -47,31 +47,14 @@ require_once __DIR__ . '/../vendor/autoload.php';
             <span id="characterCount">0</span>/250
         </div>
 
-        <div class="direction-row">
-            <div class="direction-field">
-                <label for="direction">
-                    Direction
-                </label>
+        <div class="conversion-field">
+            <label for="direction">Conversion</label>
 
-                <select id="direction" name="direction">
-                    <option value="aurebesh">
-                        Latin → Aurebesh
-                    </option>
-
-                    <option value="latin">
-                        Aurebesh → Latin
-                    </option>
-                </select>
-            </div>
-
-            <button
-                type="button"
-                id="swapDirection"
-                class="swap-button"
-                aria-label="Swap translation direction"
-            >
-                ⇄
-            </button>
+            <select id="direction" name="direction">
+                <option value="aurebesh">
+                    Latin → Aurebesh
+                </option>
+            </select>
         </div>
     </form>
 
