@@ -4,7 +4,7 @@ A web-based Aurebesh transliteration experiment created by **Kerentic Labs**, th
 
 The project converts Latin text into a visual Aurebesh representation and allows users to export the result as an image.
 
-> Kerentic Labs · Experiment 001
+> Kerentic Labs · Experiment 000
 
 ---
 
@@ -373,7 +373,7 @@ Aurebesh Translator is:
 
 ```text
 Kerentic Labs
-└── Experiment 001
+└── Experiment 000
     └── Aurebesh Translator
 ```
 
